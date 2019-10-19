@@ -1,13 +1,139 @@
-body {
+*,
+*::after,
+*::before {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: inherit;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+html {
+  font-size: 62.5%;
+  font-family: "IBM Plex Sans", sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+}
+
+.roomSelect > h2 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.selectionForm {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  min-height: 20vh;
+  flex-direction: column;
+}
+.backBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+  font-size: 2.5rem;
+  padding: 1rem 2rem;
+}
+
+.missingPlayer {
+  font-size: 2rem;
+  margin: 1rem auto;
+}
+.createGame,
+.joinGame {
+  margin: 1rem;
+  padding: 1rem;
+  background: whitesmoke;
+  width: 25vw;
+}
+
+.infoSection {
+  display: flex;
+  align-items: center;
+  font-size: 3rem;
+}
+.winnerBox {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem;
+  flex-direction: column;
+}
+.infoSection > h3 {
+  margin: auto 1rem;
+}
+.room {
+  text-align: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+.room:hover {
+  background: white;
+}
+
+.playersOnline {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 3rem;
+  font-size: 2.5rem;
+  background: lightskyblue;
+  padding: 1rem;
+}
+
+.board {
+  width: 35rem;
+  display: flex;
+  height: 35rem;
+  flex-wrap: wrap;
+}
+
+.box {
+  width: 33.33%;
+  height: 33.33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 7rem;
+  /* color: white; */
+}
+
+.even {
+  background: lightgreen;
+}
+.odd {
+  background: lightskyblue;
+}
+
+.info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 1rem;
+}
+
+.roomInput > * input {
+  text-align: center;
+}
+
+.noRooms {
+  font-size: 2rem;
+  text-align: center;
+  margin: 1rem auto;
 }

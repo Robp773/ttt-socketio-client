@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Game from "./components/Game";
+import RoomSelect from "./components/RoomSelect";
+import { API_BASE_URL } from "./config";
+import io from "socket.io-client";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = { room: null };
+    this.dataStream = io(`${API_BASE_URL}`);
+    this.handleRoomSelect = this.handleRoomSelect.bind(this);
+  }
+
+  handleRoomSelect(room) {
+    this.setState({ room });
+    this.dataStream.emit("roomRefresh");
+  }
+
+  render() {
+    return (
+      <div className="App">
+        {this.state.room ? (
+          <Game
+            handleRoomSelect={this.handleRoomSelect}
+            room={this.state.room}
+          />
+        ) : (
+          <RoomSelect
+            handleRoomSelect={this.handleRoomSelect}
+            dataStream={this.dataStream}
+          />
+        )}
+      </div>
+    );
+  }
 }
-
-export default App;
