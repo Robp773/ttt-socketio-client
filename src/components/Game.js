@@ -123,11 +123,8 @@ export default class Game extends React.Component {
           <div>
             <h3>Waiting for Second Player...</h3>
             <div className="missingPlayer">
-              If you want to test the app out by yourself, click{" "}
-              <a href="/" target="#">
-                here
-              </a>{" "}
-              and join this game in a new window
+              If you want to test the game by yourself, open a second instance
+              of the app and join this game.
             </div>
           </div>
         ) : (
